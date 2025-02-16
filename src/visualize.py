@@ -12,6 +12,7 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
+import matplotlib.pyplot as plt
 
 # open the input path
 with open(args.input_path) as f:
@@ -26,3 +27,19 @@ if args.percent:
 items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
 for k,v in items:
     print(k,':',v)
+
+top10 = []
+i = 0
+while i < 10:
+    top10.append((items[i][0], items[i][1]))
+    i += 1
+#print(top10)
+asc_top10 = sorted(top10, key=lambda x: x[1])
+#print("printing ascending order...\n", asc_top10)
+xkeys = [x[0] for x in asc_top10]
+yvals = [x[1] for x in asc_top10]
+#print("printing x keys:", xkeys)
+#print("printing y vals:", yvals)
+
+plt.bar(xkeys, yvals)
+plt.savefig("plot1-test.png")
