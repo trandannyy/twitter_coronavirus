@@ -30,16 +30,31 @@ for k,v in items:
 
 top10 = []
 i = 0
-while i < 10:
-    top10.append((items[i][0], items[i][1]))
-    i += 1
+
+#while i < 10:
+#if i < len(items[i]):
+for i in range(len(items)):
+    if i > 10:
+        break
+    else:
+        top10.append((items[i][0], items[i][1]))
+#        i += 1
 #print(top10)
+
 asc_top10 = sorted(top10, key=lambda x: x[1])
 #print("printing ascending order...\n", asc_top10)
+
 xkeys = [x[0] for x in asc_top10]
 yvals = [x[1] for x in asc_top10]
 #print("printing x keys:", xkeys)
 #print("printing y vals:", yvals)
 
 plt.bar(xkeys, yvals)
-plt.savefig("plot1-test.png")
+plt.ylabel("Number of Tweets")
+
+if args.input_path.endswith(".lang"):
+    plt.xlabel("Languages")
+else:
+    plt.xlabel("Countries")
+plt.tight_layout()
+plt.savefig(f"plot-{args.key}-{args.input_path}.png")
