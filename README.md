@@ -282,16 +282,16 @@ In this project, I analyzed this data using the MapReduce algorithm. The data wa
 Below are some bar plots I created.
 
 1. Number of times "#coronavirus" was used by country in 2020
-<img src=plot-#coronavirus-reduced.country.png width=100% />
+<img src=plot-`#`coronavirus-reduced.country.png width=100% />
 
 2. Number of times "#coronavirus" was used by language in 2020
-<img src=plot-#coronavirus-reduced.lang.png width=100% />
+<img src=plot-`#`coronavirus-reduced.lang.png width=100% />
 
 3. Number of times "#코로나바이러스" was used by country in 2020
-<img src=plot-#코로나바이러스-reduced.country.png width=100% />
+<img src=plot-`#`코로나바이러스-reduced.country.png width=100% />
 
 4. Number of times "#코로나바이러스" was used by language in 2020
-<img src=plot-#코로나바이러스-reduced.lang.png width=100% />
+<img src=plot-`#`코로나바이러스-reduced.lang.png width=100% />
 
 To create these plots, the reducer summed up the frequency of all hashtags between days and then it was plotted.
 
