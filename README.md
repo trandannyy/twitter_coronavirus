@@ -268,3 +268,42 @@ There's two reasons:
     In general, writing test cases for large data analysis tasks is tricky and rarely done.
     Writing correct code without test cases is hard,
     and so many (most?) analysis of large datasets contain lots of bugs.
+
+
+# Coronavirus twitter analysis
+
+**Project Overview**
+
+This project utilizes geotagged twitter data provided by Professor Mike Izbicki.
+The data was separated into zip files, one for each day of the year.
+
+In this project, I analyzed this data using the MapReduce algorithm. The data was already partitioned, so I wrote the mapper, reducer, and visualizer (which used matplotlib).
+
+Below are some bar plots I created.
+
+1. Number of times "#coronavirus" was used by country in 2020
+<img src=plot-#coronavirus-reduced.country.png width=100% />
+
+2. Number of times "#coronavirus" was used by language in 2020
+<img src=plot-#coronavirus-reduced.lang.png width=100% />
+
+3. Number of times "#코로나바이러스" was used by country in 2020
+<img src=plot-#코로나바이러스-reduced.country.png width=100% />
+
+4. Number of times "#코로나바이러스" was used by language in 2020
+<img src=plot-#코로나바이러스-reduced.lang.png width=100% />
+
+To create these plots, the reducer summed up the frequency of all hashtags between days and then it was plotted.
+
+Overall, we see that #coronavirus was mostly frequently used in tweets that came from the United States and were in English. On the other hand, the #코로나바이러스 was mostly used in Korea from tweets that were in Korean as expected.
+
+Finally, I also created an alternative reduce and visualizer.
+
+Below is the line plot I created using this alternate reduce.
+
+1. Number of tweets by day with a hashtag in 2020
+<img src=alt-reduce-plot-example.png width=100% />
+
+To create this plot, I had to scan each file and extract the frequency of each hashtag and store them separately so that I could plot it over time.
+
+Here, we see that #coronavirus and #corona peaked in usage around March, which makes sense!
